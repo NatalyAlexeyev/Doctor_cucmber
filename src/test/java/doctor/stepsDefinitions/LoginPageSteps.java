@@ -18,19 +18,13 @@ public class LoginPageSteps {
     
     @When("The user enters valid data")
     public void userEntersValidData() {
-        // Получаем сохраненный сгенерированный email
+
         String email = RegistrationPage.getGeneratedEmail();
 
-        // Логинимся с этим email
-        String password = "milkacat"; // или пароль, с которым был зарегистрирован пользователь
+
+        String password = "milkacat";
         new LoginPage(driver).enterPazientData(email, password);
-//        // Генерируем случайный email
-//        String randomEmail = EmailUtils.generateRandomEmail();
-//        String validPassword = "password";  // Пример пароля, который вы хотите использовать для теста
-//
-//        // Вводим случайный email и пароль в форму логина
-//        new LoginPage(driver).enterPazientData(randomEmail, validPassword);
-//       // new LoginPage(driver).enterPazientData("Milka@gmx.test", "milkacat");
+
     }
 
     @And("The user clicks on the Anmelden button")

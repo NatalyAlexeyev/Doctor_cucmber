@@ -1,7 +1,5 @@
 Feature: User Registration
 
-
-
   Background:
     Given The user launches the browser
     When The user opens the gesundheitspraxis home page

@@ -3,6 +3,7 @@ package doctor.stepsDefinitions;
 import doctor.pages.HomePage;
 import doctor.pages.LoginPage;
 import doctor.pages.ProfilePage;
+import doctor.pages.RegistrationPage;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -40,7 +41,6 @@ public class HomePageSteps {
         new LoginPage(driver).clickOnLoginLink();
     }
 
-
     @When("The user clicks on the Infusionstherapie")
     public void clicksInfusionstherapie() {
         new HomePage(driver).clickInfusionstherapieLink();
@@ -61,7 +61,6 @@ public class HomePageSteps {
         Assert.assertTrue(new HomePage(driver).isMeineLeistungenTitle());
     }
 
-
     @When("The user clicks on the Neuraltherapie")
     public void userClicksOnNeuraltherapie() {
         new HomePage(driver).clickNeuraltherapie();
@@ -79,7 +78,7 @@ public class HomePageSteps {
 
     @Then("Check that Schrüpftherapie is displayed")
     public void checkSchrupftherapieIsDisplayed() {
-       Assert.assertTrue(new HomePage(driver).isSchröpftherapieTitlePresent());
+       Assert.assertTrue(new HomePage(driver).isSchropftherapieTitlePresent());
     }
 
     @When("The user click on the Phytotherapie")
@@ -155,5 +154,61 @@ public class HomePageSteps {
     @And("The user is redirected to the Profile page")
     public void userIsRedirectedProfilePage() {
         Assert.assertTrue(new ProfilePage(driver).isProfileLinkPresent());
+    }
+
+    @And("The user clicks on the About link")
+    public void userClicksAboutLink() {
+        new HomePage(driver).clickAboutlink();
+    }
+
+    @And("Check that the home page title About is displayed")
+    public void checkHomePageTitleAboutIsDisplayed() {
+        Assert.assertTrue(new HomePage(driver).isHomePageTitleAbout());
+    }
+
+    @And("The user clicks on the Team link")
+    public void userClicksTeamLink() {
+        new HomePage(driver).clickTeamlink();
+
+    }
+
+    @And("Check that the home page title Team is displayed")
+    public void checkHomePageTitleTeamIsDisplayed() {
+        Assert.assertTrue(new HomePage(driver).isHomePageTitleTeam());
+    }
+
+    @And("The user clicks on the Contact link")
+    public void userClicksContactLink() {
+        new HomePage(driver).clickContactlink();
+    }
+
+    @And("Check that the home page title Contact is displayed")
+    public void checkHomePageTitleContactIsDisplayed() {
+        Assert.assertTrue(new HomePage(driver).isHomePageTitleContact());
+    }
+
+    @And("The user clicks on the Services link")
+    public void userClicksServicesLink() {
+        new HomePage(driver).clickServices();
+    }
+
+    @And("Check that the home page title Services is displayed")
+    public void checkHomePageTitleServicesIsDisplayed() {
+        Assert.assertTrue(new HomePage(driver).isHomePageTitleServices());
+    }
+
+    @And("The user clicks on the Termin Vereinbar button")
+    public void userClicksTerminVereinbarButton() {
+        new HomePage(driver).clickTerminVereinbar();
+    }
+
+    @Then("The user enters Kontaktvalid details")
+    public void userEntersKontaktvalidDetails() {
+        new HomePage(driver).enterKontaktDetails("Milka","maq@gmx.test","0123456789","Guten Tag. Ich bin ein Test");
+    }
+
+    @And("The user clicks on the Nachricht senden button")
+    public void userClicksNachrichtSenden() {
+        new HomePage(driver).clickNachrichtSenden();
     }
 }

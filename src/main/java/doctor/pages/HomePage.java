@@ -1,14 +1,12 @@
 package doctor.pages;
 
 import doctor.core.BasePage;
-import org.openqa.selenium.TimeoutException;
+import doctor.utils.EmailUtils;
+import doctor.utils.UserDataUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
@@ -87,7 +85,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//h2[contains(text(),'Schröpftherapie')]")
     WebElement schropftherapieTitle;
-    public boolean isSchröpftherapieTitlePresent() {
+    public boolean isSchropftherapieTitlePresent() {
         wait.until(ExpectedConditions.visibilityOf(schropftherapieTitle));
         return schropftherapieTitle.isDisplayed();
     }
@@ -179,6 +177,97 @@ public class HomePage extends BasePage {
 
     public boolean isHomePageLogin() {
         return isElementPresent(loginLink);
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'About')]")
+    WebElement aboutLink;
+    public HomePage clickAboutlink() {
+        scrollWithPageDown(4,250);
+        click(aboutLink);
+        return new HomePage(driver);
+    }
+
+    @FindBy(xpath = "//h2[contains(text(),'About')]")
+    WebElement aboutTitle;
+    public boolean isHomePageTitleAbout() {
+        wait.until(ExpectedConditions.visibilityOf(aboutTitle));
+        return aboutTitle.isDisplayed();
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'Team')]")
+    WebElement teamLink;
+    public HomePage clickTeamlink() {
+
+        click(teamLink);
+        return new HomePage(driver);
+    }
+
+    @FindBy(xpath = "//h2[contains(text(),'Unser Team')]")
+    WebElement teamTitle;
+    public boolean isHomePageTitleTeam() {
+        wait.until(ExpectedConditions.visibilityOf(teamTitle));
+        return teamTitle.isDisplayed();
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'Contact')]")
+    WebElement contactLink;
+    public HomePage clickContactlink() {
+        scrollWithPageDown(13,100);
+        click(contactLink);
+        return new HomePage(driver);
+    }
+
+    @FindBy(xpath = "//h2[contains(text(),'Kontakt')]")
+    WebElement contactTitle;
+    public boolean isHomePageTitleContact() {
+        wait.until(ExpectedConditions.visibilityOf(contactTitle));
+        return contactTitle.isDisplayed();
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'Services')]")
+    WebElement servicesLink;
+    public HomePage clickServices() {
+        click(servicesLink);
+        return new HomePage(driver);
+    }
+
+    @FindBy(xpath = "//h2[contains(text(),'Services')]")
+    WebElement servicesTitle;
+    public boolean isHomePageTitleServices() {
+        wait.until(ExpectedConditions.visibilityOf(contactTitle));
+        return contactTitle.isDisplayed();
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'Termin vereinbaren')]")
+    WebElement terminVereinbarLink;
+    public HomePage clickTerminVereinbar() {
+        scrollWithPageDown(1,100);
+        click(terminVereinbarLink);
+        return new HomePage(driver);
+    }
+
+    @FindBy(xpath = "//div[@class='form-group mb-md-0']//input[1]")
+    WebElement telefonnummer;
+    @FindBy(xpath = "(//div[@class='form-group']//input)[1]")
+    WebElement nname;
+    @FindBy(xpath = "(//div[@class='form-group']//input)[2]")
+    WebElement email;
+    @FindBy(xpath = "//div[contains(@class,'form-group form-group-textarea')]//textarea[1]")
+    WebElement nachricht;
+
+    public HomePage enterKontaktDetails(String name, String Email, String telefonNumber, String Nachricht) {
+        type(nname, name);
+        type(email, Email);
+        type(telefonnummer, telefonNumber);
+        type(nachricht, Nachricht);
+        return this;
+    }
+
+    @FindBy(xpath = "//button[@id='submitButton']")
+    WebElement nachrichtSenden;
+    public HomePage clickNachrichtSenden() {
+        click(nachrichtSenden);
+        return new HomePage(driver);
     }
 
 }
