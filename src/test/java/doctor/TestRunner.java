@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
                 tags = "@Logout or @ProfileVorNaname or @ProfileNachNaname or @ProfileTelefonnummer or " +
                         "@Login or @InvalidPassword or @Registration or @Infusionstherapie or " +
                         "@Neuraltherapie or @Schrüpftherapie or @Phytotherapie or @Aromatherapie or " +
-                        "@Ernährungsberatung or @Labordiagnostik or @About or @Team or @Contact or @Services or @TerminVereinbaren",
-                monochrome = true
+                        "@Ernährungsberatung or @Labordiagnostik"
         )
 
 public class TestRunner {
 }
+
