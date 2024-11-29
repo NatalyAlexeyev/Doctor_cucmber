@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         (
                 features = "src/test/resources/features",
                 glue = "doctor.stepsDefinitions",
-               // plugin = {"pretty", "html:target/cucumber-reports.html"},
+                plugin = {"pretty", "json:target/cucumber.json"},
                 tags = "@Logout or @ProfileVorNaname or @ProfileNachNaname or @ProfileTelefonnummer or " +
                         "@Login or @InvalidPassword or @Registration or @Infusionstherapie or " +
                         "@Neuraltherapie or @Schrüpftherapie or @Phytotherapie or @Aromatherapie or " +
