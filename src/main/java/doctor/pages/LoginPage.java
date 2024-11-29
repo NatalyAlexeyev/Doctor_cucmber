@@ -105,10 +105,7 @@ public class LoginPage extends BasePage {
         if (userData != null) {
             String email = userData[0];
             String password = userData[1];
-
-            // Используем полученные данные для входа
             enterPazientData(email, password);
-
         } else {
             System.out.println("No user data found!");
         }

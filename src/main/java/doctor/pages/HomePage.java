@@ -1,14 +1,10 @@
 package doctor.pages;
 
 import doctor.core.BasePage;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
@@ -87,7 +83,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//h2[contains(text(),'Schröpftherapie')]")
     WebElement schropftherapieTitle;
-    public boolean isSchröpftherapieTitlePresent() {
+    public boolean isSchropftherapieTitlePresent() {
         wait.until(ExpectedConditions.visibilityOf(schropftherapieTitle));
         return schropftherapieTitle.isDisplayed();
     }

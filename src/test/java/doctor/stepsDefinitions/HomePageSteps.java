@@ -79,7 +79,7 @@ public class HomePageSteps {
 
     @Then("Check that Schrüpftherapie is displayed")
     public void checkSchrupftherapieIsDisplayed() {
-       Assert.assertTrue(new HomePage(driver).isSchröpftherapieTitlePresent());
+       Assert.assertTrue(new HomePage(driver).isSchropftherapieTitlePresent());
     }
 
     @When("The user click on the Phytotherapie")
