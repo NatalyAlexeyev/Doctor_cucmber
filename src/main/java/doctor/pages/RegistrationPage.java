@@ -106,34 +106,19 @@ public class RegistrationPage extends BasePage {
 
 
     public RegistrationPage enterInvalidDetails(DataTable table) {
-        // Преобразуем таблицу данных в список карт, каждая карта содержит email и password
+
         List<Map<String, String>> dataTable = table.asMaps();
         for (Map<String, String> row : dataTable) {
             String vormame = row.get("vorname");
             String nachname = row.get("nachname");
-            // Проверяем email, если пустой, генерируем случайный
-//            String email = row.get("email").trim();
-//            if (email.isEmpty()) {
-//                email = EmailUtils.generateRandomEmail(); // Генерация случайного email
-//                generatedEmail = email; // Сохраняем сгенерированный email
-//            } else {
-//                email = email.trim();
-//            }
             String email = row.get("email");
             if (email == null || email.trim().isEmpty()) {
-                email = EmailUtils.generateRandomEmail(); // Генерация случайного email
+                email = EmailUtils.generateRandomEmail();
             } else {
-                email = email.trim(); // Если email не пустой, удаляем лишние пробелы
+                email = email.trim();
             }
-//            String email = row.get("email").trim();
-//            if (email.isEmpty()) {
-//                email = EmailUtils.generateRandomEmail(); // Генерация случайного email
-//            }
-            //email = row.get("email").trim();
-            //email = EmailUtils.generateRandomEmail(); // Генерация случайного email
             String telefonnummer = row.get("telefonnummer");
             String password = row.get("password");
-            // Заполняем форму
             enterInvDetails(vormame, nachname, email, telefonnummer, password);
         }
         return this;
@@ -171,7 +156,7 @@ public class RegistrationPage extends BasePage {
                     throw new RuntimeException("No such error message: " + expectedErrorMessage);
 
             }
-            if (errorMessageElement != null) { //Check if expectedErrorMessage is not null
+            if (errorMessageElement != null) {
                 wait.until(ExpectedConditions.visibilityOf(errorMessageElement));
                 return errorMessageElement.isDisplayed();
             }
@@ -184,7 +169,7 @@ public class RegistrationPage extends BasePage {
             System.err.println("Element not found on the page: " + e.getMessage());
             return false;
         }
-        return false; //Return false if no error message is found
+        return false;
 
     }
 }

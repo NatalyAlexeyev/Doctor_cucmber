@@ -61,7 +61,6 @@ public class ProfilePage extends BasePage {
         return new ProfilePage(driver);
     }
 
-
     @FindBy(xpath = "(//div[@class='col-sm-6']//input)[2]")
     WebElement nachName;
     public ProfilePage enterNachname(String text) {

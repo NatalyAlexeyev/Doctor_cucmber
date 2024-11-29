@@ -9,16 +9,16 @@ import java.util.List;
 import java.util.Random;
 
 public class UserDataUtils {
-    // Метод для записи данных в файл
+
     public static void saveUserData(String email, String password) {
         try (FileWriter writer = new FileWriter("user_data.csv", true)) {
-            // Записываем email и password в формате CSV
+
             writer.append(email).append(",").append(password).append("\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    // Метод для чтения данных из файла и случайного выбора одного пользователя
+
     public static String[] getRandomUserData() {
         List<String[]> users = new ArrayList<>();
 
@@ -26,16 +26,16 @@ public class UserDataUtils {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] userData = line.split(",");
-                users.add(userData);  // Добавляем данные пользователя в список
+                users.add(userData);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // Выбираем случайного пользователя
+
         Random random = new Random();
         if (!users.isEmpty()) {
-            return users.get(random.nextInt(users.size())); // Возвращаем случайную пару email и password
+            return users.get(random.nextInt(users.size()));
         }
-        return null;  // Если данных нет
+        return null;
     }
 }

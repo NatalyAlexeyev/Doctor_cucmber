@@ -34,7 +34,7 @@ public class BasePage {
         //options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2)); // неявное
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
     protected void click(WebElement element) {
        // scrollTo(500);
