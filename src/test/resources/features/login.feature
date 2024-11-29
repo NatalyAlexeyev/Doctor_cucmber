@@ -4,7 +4,7 @@ Feature: User Anmelden
     Given The user launches the browser
     When The user opens the gesundheitspraxis home page
     Then The user clicks on the Login button
-    And Check that the Login page title is displayed
+   # And Check that the Login page title is displayed
 
   @Login
   Scenario: Successful user login

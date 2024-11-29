@@ -65,11 +65,11 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage enterCredentials(DataTable table) {
-        // Преобразуем таблицу данных в список карт, каждая карта содержит email и password
+
         List<Map<String, String>> dataTable = table.asMaps();
         String email = dataTable.get(0).get("email");
         String password = dataTable.get(0).get("password");
-        // Заполняем форму
+
         enterCredentials(email,password);
         return this;
     }
@@ -100,7 +100,6 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage enterPazientData1() {
-        // Читаем случайные данные пользователя
         String[] userData = UserDataUtils.getRandomUserData();
         if (userData != null) {
             String email = userData[0];
