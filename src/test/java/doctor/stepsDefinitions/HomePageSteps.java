@@ -183,16 +183,6 @@ public class HomePageSteps {
         Assert.assertTrue(new HomePage(driver).isHomePageTitleContact());
     }
 
-    @And("The user clicks on the Services link")
-    public void userClicksServicesLink() {
-        new HomePage(driver).clickServices();
-    }
-
-    @And("Check that the home page title Services is displayed")
-    public void checkHomePageTitleServicesIsDisplayed() {
-        Assert.assertTrue(new HomePage(driver).isHomePageTitleServices());
-    }
-
     @And("The user clicks on the Termin Vereinbar button")
     public void userClicksTerminVereinbarButton() {
         new HomePage(driver).clickTerminVereinbar();
