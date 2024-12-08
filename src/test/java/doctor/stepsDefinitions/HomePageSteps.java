@@ -202,4 +202,5 @@ public class HomePageSteps {
     public void userClicksTermine() {
         new TerminePage(driver).clickTermine();
     }
+
 }

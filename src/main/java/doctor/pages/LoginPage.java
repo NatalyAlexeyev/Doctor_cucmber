@@ -103,8 +103,8 @@ public class LoginPage extends BasePage {
             String email = userData[0];
             String password = userData[1];
             enterPazientData(email, password);
-        } else {
-            System.out.println("No user data found!");
+//        } else {
+//            System.out.println("No user data found!");
         }
         return this;
     }
