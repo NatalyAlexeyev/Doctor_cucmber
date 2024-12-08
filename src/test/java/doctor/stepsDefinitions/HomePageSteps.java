@@ -1,9 +1,6 @@
 package doctor.stepsDefinitions;
 
-import doctor.pages.HomePage;
-import doctor.pages.LoginPage;
-import doctor.pages.ProfilePage;
-import doctor.pages.RegistrationPage;
+import doctor.pages.*;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -51,9 +48,9 @@ public class HomePageSteps {
         Assert.assertTrue(new HomePage(driver).isInfusionstherapieTitlePresent());
     }
 
-    @Then("The user clicks on the Portfolio")
-    public void userClicksOnPortfolio() {
-        new HomePage(driver).clikPortfolio();
+    @Then("The user clicks on the Leisungen")
+    public void userClicksOnLeistungen() {
+        new HomePage(driver).clikLeistungen();
     }
 
     @Then("Check that the title Meine Leistungen is displayed")
@@ -71,7 +68,7 @@ public class HomePageSteps {
         Assert.assertTrue(new HomePage(driver).isNeuraltherapieTitlePresent());
     }
 
-    @When("The user click on the Schröpftherapie")
+    @When("The user click on the Schropftherapie")
     public void userClickOnSchropftherapie() {
         new HomePage(driver).clickSchropftherapie();
     }
@@ -131,12 +128,12 @@ public class HomePageSteps {
         Assert.assertTrue(new HomePage(driver).isAccountButtonPresent()); // Implement isAccountButtonPresent() in HomePage.java
     }
 
-    @Then("The user clicks on the Account")
+    @When("The user clicks on the Account")
     public void userClicksAccount() {
         new HomePage(driver).clickAccount();
     }
 
-    @When("The user clicks on the Logout")
+    @Then("The user clicks on the Logout")
     public void userClicksLogout() {
         new HomePage(driver).clickLogout();
     }
@@ -156,14 +153,14 @@ public class HomePageSteps {
         Assert.assertTrue(new ProfilePage(driver).isProfileLinkPresent());
     }
 
-    @And("The user clicks on the About link")
-    public void userClicksAboutLink() {
-        new HomePage(driver).clickAboutlink();
+    @And("The user clicks on the Uber Mich link")
+    public void userClicksUberMichLink() {
+        new HomePage(driver).clickUberMichlink();
     }
 
-    @And("Check that the home page title About is displayed")
-    public void checkHomePageTitleAboutIsDisplayed() {
-        Assert.assertTrue(new HomePage(driver).isHomePageTitleAbout());
+    @And("Check that the home page title Uber Mich is displayed")
+    public void checkHomePageTitleUberMichIsDisplayed() {
+        Assert.assertTrue(new HomePage(driver).isHomePageTitleUberMich());
     }
 
     @And("The user clicks on the Team link")
@@ -210,5 +207,11 @@ public class HomePageSteps {
     @And("The user clicks on the Nachricht senden button")
     public void userClicksNachrichtSenden() {
         new HomePage(driver).clickNachrichtSenden();
+    }
+
+
+    @When("The user clicks on the Termine")
+    public void userClicksTermine() {
+        new TerminePage(driver).clickTermine();
     }
 }

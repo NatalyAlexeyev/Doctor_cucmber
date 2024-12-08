@@ -44,18 +44,23 @@ public class RegistrationPage extends BasePage {
         return isElementPresent(kontoErstellenPageTitle);
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'col-sm-6 mb-3')]//input)[1]")
+    //@FindBy(xpath = "(//div[contains(@class,'col-sm-6 mb-3')]//input)[1]")
+    @FindBy(xpath = "(//div[@class='col-sm-6']//input)[1]")
     WebElement vorname;
 
-    @FindBy(xpath = "(//div[@class='col-sm-6']//input)[1]")
+    //@FindBy(xpath = "(//div[@class='col-sm-6']//input)[1]")
+    @FindBy(xpath = "(//div[@class='col-sm-6']//input)[2]")
     WebElement nachname;
 
-    @FindBy(xpath = "(//div[contains(@class,'col-sm-6 mb-3')]//input)[2]")
+    //@FindBy(xpath = "(//div[contains(@class,'col-sm-6 mb-3')]//input)[2]")
+    @FindBy(xpath = "(//div[@class='col-sm-6']//input)[3]")
     WebElement email1;
 
-    @FindBy(xpath = "(//div[@class='col-sm-6']//input)[2]")
+    //@FindBy(xpath = "(//div[@class='col-sm-6']//input)[2]")
+    @FindBy(xpath = "//input[@name='PhoneNumber']")
     WebElement telefonnummer;
 
+   // @FindBy(xpath = "//div[@class='form-group']//input[1]")
     @FindBy(xpath = "//div[@class='form-group']//input[1]")
     WebElement passwort;
 
@@ -171,6 +176,14 @@ public class RegistrationPage extends BasePage {
         }
         return false;
 
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'Anmelden')]")
+    WebElement anmeldenLink;
+
+    public RegistrationPage clickAnmeldenLink() {
+        click(anmeldenLink);
+        return new RegistrationPage(driver);
     }
 }
 

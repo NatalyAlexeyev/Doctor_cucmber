@@ -29,12 +29,13 @@ public class HomePage extends BasePage {
    @FindBy(xpath = "//div[text()='Infusionstherapie']/preceding::a[1]")
     WebElement infusionstherapieLink;
     public HomePage clickInfusionstherapieLink() {
-        //scrollWithPageDown(1,100);
+        scrollWithPageDown(2,200);
         click(infusionstherapieLink);
         return new HomePage(driver);
     }
 
-    @FindBy(xpath = "//h2[contains(text(),'Infusionstherapie')]")
+   // @FindBy(xpath = "//h2[contains(text(),'Infusionstherapie')]")
+    @FindBy(xpath = "//div[@class='modal-header']//div[1]")
     WebElement infusionstherapieTitle;
     public boolean isInfusionstherapieTitlePresent() {
         wait.until(ExpectedConditions.visibilityOf(infusionstherapieTitle));
@@ -42,10 +43,10 @@ public class HomePage extends BasePage {
        // return isElementPresent(infusionstherapieTitle);
     }
 
-    @FindBy(xpath = "//a[contains(text(),'Portfolio')]")
-    WebElement portfolioLink;
-    public HomePage clikPortfolio() {
-        click(portfolioLink);
+    @FindBy(xpath = "//a[contains(text(),'Leistungen')]")
+    WebElement leistungenLink;
+    public HomePage clikLeistungen() {
+        click(leistungenLink);
         return new HomePage(driver);
     }
 
@@ -55,16 +56,19 @@ public class HomePage extends BasePage {
         return isElementPresent(meineLeistungenTitle);
     }
 
+
+    //@FindBy(xpath = "(//a[@class='portfolio-link']//div)[3]")
     @FindBy(xpath = "//div[text()='Neuraltherapie']/preceding::a[1]")
    // @FindBy(xpath = "//div[text()='Neuraltherapie']/preceding::a[@class='portfolio-link']")
    // @FindBy(xpath = "(//a[@class='portfolio-link']//div)[3]")
     WebElement neuraltherapieLink;
     public HomePage clickNeuraltherapie() {
+        scrollWithPageDown(2,300);
         click(neuraltherapieLink);
         return new HomePage(driver);
     }
-
-    @FindBy(xpath = "//h2[contains(text(),'Neuraltherapie')]")
+    @FindBy(xpath = "//div[@class='modal-header']//div[1]")
+    //@FindBy(xpath = "//h2[contains(text(),'Neuraltherapie')]")
     WebElement neuraltherapieTitle;
     public boolean isNeuraltherapieTitlePresent() {
         wait.until(ExpectedConditions.visibilityOf(neuraltherapieTitle));
@@ -76,12 +80,13 @@ public class HomePage extends BasePage {
     //@FindBy(xpath = "(//div[@class='portfolio-hover'])[3]")
     WebElement schropftherapieLink;
     public HomePage clickSchropftherapie() {
-       // scrollWithPageDown(1,200);
+        scrollWithPageDown(2,300);
         click(schropftherapieLink);
         return new HomePage(driver);
     }
 
-    @FindBy(xpath = "//h2[contains(text(),'Schröpftherapie')]")
+    @FindBy(xpath = "//div[@class='modal-header']//div[1]")
+    //@FindBy(xpath = "//h2[contains(text(),'Schröpftherapie')]")
     WebElement schropftherapieTitle;
     public boolean isSchropftherapieTitlePresent() {
         wait.until(ExpectedConditions.visibilityOf(schropftherapieTitle));
@@ -91,12 +96,13 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[text()='Phytotherapie']/preceding::a[1]")
     WebElement phytotherapieLink;
     public HomePage clickPhytotherapie() {
-        scrollWithPageDown(3,250);
+        scrollWithPageDown(3,350);
         click(phytotherapieLink);
         return new HomePage(driver);
     }
 
-    @FindBy(xpath = "//h2[contains(text(),'Phytotherapie')]")
+    //@FindBy(xpath = "//h2[contains(text(),'Phytotherapie')]")
+    @FindBy(xpath = "//div[@class='modal-header']//div[1]")
     WebElement phytotherapieTitle;
     public boolean isPhytotherapieTitlePresent() {
         wait.until(ExpectedConditions.visibilityOf(phytotherapieTitle));
@@ -150,13 +156,14 @@ public class HomePage extends BasePage {
         return labordiagnostikTitle.isDisplayed();
     }
 
-    @FindBy(xpath = "//button[contains(text(),'Account')]") // Replace with the actual XPath of the Account button
+    @FindBy(xpath = "//a[contains(text(),'Account')]") // Replace with the actual XPath of the Account button
     WebElement accountButton;
     public boolean isAccountButtonPresent() {
         return isElementPresent(accountButton);
     }
 
-    @FindBy(xpath = "//button[contains(text(),'Account')]")
+   // @FindBy(xpath = "//button[contains(text(),'Account')]")
+    @FindBy(xpath = "//a[contains(text(),'Account')]")
     WebElement accountLink;
     public HomePage clickAccount() {
         click(accountLink);
@@ -177,25 +184,24 @@ public class HomePage extends BasePage {
         return isElementPresent(loginLink);
     }
 
-    @FindBy(xpath = "//a[contains(text(),'About')]")
-    WebElement aboutLink;
-    public HomePage clickAboutlink() {
+    @FindBy(xpath = "//a[contains(text(),'Über mich')]")
+    WebElement uberMichLink;
+    public HomePage clickUberMichlink() {
         scrollWithPageDown(4,250);
-        click(aboutLink);
+        click(uberMichLink);
         return new HomePage(driver);
     }
 
-    @FindBy(xpath = "//h2[contains(text(),'About')]")
-    WebElement aboutTitle;
-    public boolean isHomePageTitleAbout() {
-        wait.until(ExpectedConditions.visibilityOf(aboutTitle));
-        return aboutTitle.isDisplayed();
+    @FindBy(xpath = "//h2[contains(text(),'Über mich')]")
+    WebElement uberMichTitle;
+    public boolean isHomePageTitleUberMich() {
+        wait.until(ExpectedConditions.visibilityOf(uberMichTitle));
+        return uberMichTitle.isDisplayed();
     }
 
     @FindBy(xpath = "//a[contains(text(),'Team')]")
     WebElement teamLink;
     public HomePage clickTeamlink() {
-
         click(teamLink);
         return new HomePage(driver);
     }
@@ -236,12 +242,13 @@ public class HomePage extends BasePage {
         return contactTitle.isDisplayed();
     }
 
-    @FindBy(xpath = "//a[contains(text(),'Termin vereinbaren')]")
-    WebElement terminVereinbarLink;
-    public HomePage clickTerminVereinbar() {
+    @FindBy(xpath = "//button[contains(text(),'Termin vereinbaren')]" )
+
+    WebElement terminVereinbarButton;
+    public TerminePage clickTerminVereinbar() {
         scrollWithPageDown(1,100);
-        click(terminVereinbarLink);
-        return new HomePage(driver);
+        click(terminVereinbarButton);
+        return new TerminePage(driver);
     }
 
     @FindBy(xpath = "//div[@class='form-group mb-md-0']//input[1]")
@@ -267,6 +274,5 @@ public class HomePage extends BasePage {
         click(nachrichtSenden);
         return new HomePage(driver);
     }
-
 }
 

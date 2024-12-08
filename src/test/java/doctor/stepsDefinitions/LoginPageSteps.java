@@ -19,7 +19,7 @@ public class LoginPageSteps {
     @When("The user enters valid data")
     public void userEntersValidData() {
 
-        String email = RegistrationPage.getGeneratedEmail();
+        String email = "Milka@gmx.test";//RegistrationPage.getGeneratedEmail();
 
 
         String password = "milkacat";
@@ -55,5 +55,10 @@ public class LoginPageSteps {
     @When("The user logs in with random valid credentials")
     public void userLogsInWithRandomValidCredentials() {
         new LoginPage(driver).enterPazientData1();
+    }
+
+    @Then("The user is redirected to the Login page")
+    public void theUserIsRedirectedToTheLoginPage() {
+        Assert.assertTrue(new LoginPage(driver).isLoginPageTitlePresent());
     }
 }

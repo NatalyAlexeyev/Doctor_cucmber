@@ -61,5 +61,11 @@ public class RegistrationPageSteps {
                 String.format("Expected error message '%s' was not displayed", expectedErrorMessage),
                 new RegistrationPage(driver).isUnsuccessfulRegistrationMessageDisplayed(expectedErrorMessage));
     }
+
+
+    @And("The user clicks on the Anmelden link")
+    public void userClicksAnmeldenLink() {
+        new RegistrationPage(driver).clickAnmeldenLink();
+    }
 }
 

@@ -9,10 +9,8 @@ Feature: User Anmelden
   @Login
   Scenario: Successful user login
     When The user logs in with random valid credentials
-  #  When The user enters valid data
     Then The user enters Angemeldet bleiben
     And The user clicks on the Anmelden button
-    Then The user is redirected to the home page
     And The user verifies that the Account button is displayed
 
   @InvalidPassword

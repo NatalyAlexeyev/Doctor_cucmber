@@ -27,3 +27,12 @@ Feature: User Registration
       | Max     | Mustermann |                | 1234567890   | 12345678 | Passwords must have at least one lowercase ('a'-'z') |
       | Natalya | Alex       | Milka@gmx.test | 017647056276 | milkacat | This user already exists                             |
 
+
+    @UsercliksAnmelden
+    Scenario: User decides to cancel registration and logs in instead
+      When The user enters valid details
+      And The user clicks on the Anmelden link
+      Then The user is redirected to the Login page
+      When The user logs in with random valid credentials
+      Then The user enters Angemeldet bleiben
+      And The user clicks on the Anmelden button

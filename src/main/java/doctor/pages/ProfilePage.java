@@ -28,7 +28,8 @@ public class ProfilePage extends BasePage {
         return isElementPresent(profileTitle);
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'col-sm-6 mb-3')]//input)[2]")
+    @FindBy(xpath = "(//div[@class='col-sm-6']//input)[3]")
+    //@FindBy(xpath = "(//div[contains(@class,'col-sm-6 mb-3')]//input)[2]")
     WebElement vorName;
     public ProfilePage enterVornameData(String text) {
         type(vorName,text);
@@ -68,10 +69,26 @@ public class ProfilePage extends BasePage {
         return this;
     }
 
-    @FindBy(xpath = "(//div[@class='col-sm-6']//input)[1]")
+    @FindBy(xpath = "(//div[@class='col-sm-6']//input)[2]")
+    //@FindBy(xpath = "(//div[@class='col-sm-6']//input)[1]")
     WebElement telefonNummer;
     public ProfilePage enterTelefonnummerData(String number) {
         type(telefonNummer,number);
         return this;
+    }
+
+    @FindBy(xpath = "(//div[@class='modal-footer']//button)[2]")
+    WebElement terminVereinbar;
+    public ProfilePage clickTerminVereinbar() {
+        click(terminVereinbar);
+        return new ProfilePage(driver);
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'form-check form-switch')]//input[1]")
+
+    WebElement heIsNotANewUser;
+    public ProfilePage clickHeIsNotANewUser() {
+        click(heIsNotANewUser);
+        return new ProfilePage(driver);
     }
 }
