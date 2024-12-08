@@ -1,22 +1,12 @@
 package doctor.stepsDefinitions;
 
 import doctor.pages.DialogsPage;
-import doctor.pages.LoginPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Random;
+
 
 import static doctor.core.BasePage.driver;
 
@@ -31,7 +21,6 @@ public class ModalDialogsSteps {
     public void userChoosesServiceInfusionstherapie() {
         new DialogsPage(driver).clickInfusionstherapie();
     }
-
 
     @And("The user clicks on the TerminVereinbar button")
     public void userClicksTerminVereinbarButton() {
@@ -72,26 +61,6 @@ public class ModalDialogsSteps {
     public void userChoosesService() {
         new DialogsPage(driver).clickService();
     }
-
-    @And("The user selects date {int} and timeslot {int}")
-    public void userSelectsDateAndTimeslot(int dateIndex, int timeslotIndex) {
-        new DialogsPage(driver).selectDateAndTimeslot(dateIndex, timeslotIndex);
-    }
-
-    @And("The user selects the termin date with index {int}")
-    public void theUserSelectsTheTerminDateWithIndex(int dateIndex) {
-        new DialogsPage(driver).selectDateAndTimeslot(dateIndex, 0);;
-    }
-
-//    @Then("The user clicks a random Date")
-//    public void userClicksRandomDate() {
-//        new DialogsPage(driver).clickstDate();
-//    }
-//
-//    @And("The user clicks a random Time")
-//    public void userSelectsARandomTime() {
-//        new DialogsPage(driver).clickstTime();
-//    }
 
     @And("The user checks the display infoMessage")
     public void userChecksDisplayInfoMessage () {

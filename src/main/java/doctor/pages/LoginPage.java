@@ -39,7 +39,6 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-
     @FindBy(xpath = "//button[contains(@class,'btn btn-primary')]")
     WebElement anmeldenLink;
     public LoginPage clickOnAnmeldenLink() {
@@ -65,7 +64,6 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage enterCredentials(DataTable table) {
-
         List<Map<String, String>> dataTable = table.asMaps();
         String email = dataTable.get(0).get("email");
         String password = dataTable.get(0).get("password");
@@ -80,7 +78,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @FindBy(xpath = "//div[contains(text(), 'Falsche Daten')]") // **CORRECT XPATH IS CRUCIAL**
+    @FindBy(xpath = "//div[contains(text(), 'Falsche Daten')]")
     WebElement unsuccessfulLoginMessage;
     public boolean isUnsuccessfulLoginMessageDisplayed() {
         try {

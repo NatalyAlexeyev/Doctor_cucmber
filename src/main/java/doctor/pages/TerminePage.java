@@ -82,24 +82,21 @@ public class TerminePage extends BasePage {
         List<WebElement> deleteButtons = driver.findElements(By.xpath("(//div[@class='col-sm-1']//button)[1]"));
         if (!deleteButtons.isEmpty()) {
             WebElement deleteButton = deleteButtons.get(0);
-            // Прокрутка к кнопке удаления (если необходимо)
+            // Scroll to delete button (if necessary)
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteButton);
-            // Клик по кнопке удаления
+            // Click on the delete button
             new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(deleteButton)).click();
-
-            // Ожидание появления модального окна
+            // Waiting for the modal window to appear
             WebElement confirmButton = new WebDriverWait(driver, Duration.ofSeconds(10))
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Ja, löschen!')]")));
-
-            // Клик по кнопке подтверждения
+            // Click on the confirmation button
             confirmButton.click();
-
-            // Ожидание исчезновения модального окна
+            // Waiting for the modal window to disappear
             new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(confirmButton));
 
-            System.out.println("Первый термин успешно удален.");
+            System.out.println("The first term was successfully removed.");
         } else {
-            System.err.println("Кнопки удаления отсутствуют!");
+            System.err.println("There are no delete buttons!");
         }
         return new TerminePage(driver);
     }

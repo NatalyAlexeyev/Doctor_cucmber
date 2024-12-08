@@ -1,7 +1,6 @@
 package doctor.core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,16 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 
 public class BasePage {
     public static WebDriver driver;
-
-    // public WebDriver driver;
     public WebDriverWait wait;
     public JavascriptExecutor js;
 
@@ -45,7 +38,6 @@ public class BasePage {
     protected void click(WebElement element) {
         // scrollTo(500);
         //scrollToElement(element);
-
         element.click();
     }
 
@@ -112,7 +104,6 @@ public class BasePage {
         if (driver != null) {
             driver.quit();
         }
-
     }
 }
 

@@ -1,7 +1,6 @@
 package doctor.stepsDefinitions;
 
 import doctor.pages.LoginPage;
-import doctor.pages.RegistrationPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -18,13 +17,9 @@ public class LoginPageSteps {
     
     @When("The user enters valid data")
     public void userEntersValidData() {
-
         String email = "Milka@gmx.test";//RegistrationPage.getGeneratedEmail();
-
-
         String password = "milkacat";
         new LoginPage(driver).enterPazientData(email, password);
-
     }
 
     @And("The user clicks on the Anmelden button")

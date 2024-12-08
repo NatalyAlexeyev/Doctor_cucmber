@@ -109,9 +109,7 @@ public class RegistrationPage extends BasePage {
         }
     }
 
-
     public RegistrationPage enterInvalidDetails(DataTable table) {
-
         List<Map<String, String>> dataTable = table.asMaps();
         for (Map<String, String> row : dataTable) {
             String vormame = row.get("vorname");
@@ -138,14 +136,14 @@ public class RegistrationPage extends BasePage {
         return this;
     }
 
-    @FindBy(xpath = "//div[contains(text(),\"Passwords must have at least one lowercase ('a'-'z\")]") // **CORRECT XPATH IS CRUCIAL**
+    @FindBy(xpath = "//div[contains(text(),\"Passwords must have at least one lowercase ('a'-'z\")]")
     WebElement invalidPasswordMessage;
 
     @FindBy(xpath = "//div[contains(text(),\"Username '\") and contains(text(),\"' is already taken.\")]")
     WebElement emailExistsMessage;
 
     public boolean isUnsuccessfulRegistrationMessageDisplayed(String expectedErrorMessage) {
-        WebElement errorMessageElement = null; // Declare outside the switch
+        WebElement errorMessageElement = null;
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

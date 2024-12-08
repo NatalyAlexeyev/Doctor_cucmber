@@ -166,7 +166,6 @@ public class HomePageSteps {
     @And("The user clicks on the Team link")
     public void userClicksTeamLink() {
         new HomePage(driver).clickTeamlink();
-
     }
 
     @And("Check that the home page title Team is displayed")
@@ -208,7 +207,6 @@ public class HomePageSteps {
     public void userClicksNachrichtSenden() {
         new HomePage(driver).clickNachrichtSenden();
     }
-
 
     @When("The user clicks on the Termine")
     public void userClicksTermine() {

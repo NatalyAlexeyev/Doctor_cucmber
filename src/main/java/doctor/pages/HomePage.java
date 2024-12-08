@@ -20,12 +20,7 @@ public class HomePage extends BasePage {
     public boolean isHomePageTitlePresent() {
         return isElementPresent(homePageTitl);
     }
-//    public LoginPage clickOnLoginLink() {
-//        click(loginLink);
-//        return null;
-//    }
-   // @FindBy(xpath = "//div[text()='Infusionstherapie']/preceding::a[@class='portfolio-link']")
-    //@FindBy(xpath = "(//a[@class='portfolio-link']//div)[1]")
+
    @FindBy(xpath = "//div[text()='Infusionstherapie']/preceding::a[1]")
     WebElement infusionstherapieLink;
     public HomePage clickInfusionstherapieLink() {
@@ -40,7 +35,6 @@ public class HomePage extends BasePage {
     public boolean isInfusionstherapieTitlePresent() {
         wait.until(ExpectedConditions.visibilityOf(infusionstherapieTitle));
         return infusionstherapieTitle.isDisplayed();
-       // return isElementPresent(infusionstherapieTitle);
     }
 
     @FindBy(xpath = "//a[contains(text(),'Leistungen')]")
@@ -56,11 +50,7 @@ public class HomePage extends BasePage {
         return isElementPresent(meineLeistungenTitle);
     }
 
-
-    //@FindBy(xpath = "(//a[@class='portfolio-link']//div)[3]")
     @FindBy(xpath = "//div[text()='Neuraltherapie']/preceding::a[1]")
-   // @FindBy(xpath = "//div[text()='Neuraltherapie']/preceding::a[@class='portfolio-link']")
-   // @FindBy(xpath = "(//a[@class='portfolio-link']//div)[3]")
     WebElement neuraltherapieLink;
     public HomePage clickNeuraltherapie() {
         scrollWithPageDown(2,300);
@@ -156,7 +146,7 @@ public class HomePage extends BasePage {
         return labordiagnostikTitle.isDisplayed();
     }
 
-    @FindBy(xpath = "//a[contains(text(),'Account')]") // Replace with the actual XPath of the Account button
+    @FindBy(xpath = "//a[contains(text(),'Account')]")
     WebElement accountButton;
     public boolean isAccountButtonPresent() {
         return isElementPresent(accountButton);
@@ -228,23 +218,9 @@ public class HomePage extends BasePage {
         return contactTitle.isDisplayed();
     }
 
-    @FindBy(xpath = "//a[contains(text(),'Services')]")
-    WebElement servicesLink;
-    public HomePage clickServices() {
-        click(servicesLink);
-        return new HomePage(driver);
-    }
-
-    @FindBy(xpath = "//h2[contains(text(),'Services')]")
-    WebElement servicesTitle;
-    public boolean isHomePageTitleServices() {
-        wait.until(ExpectedConditions.visibilityOf(contactTitle));
-        return contactTitle.isDisplayed();
-    }
-
     @FindBy(xpath = "//button[contains(text(),'Termin vereinbaren')]" )
-
     WebElement terminVereinbarButton;
+
     public TerminePage clickTerminVereinbar() {
         scrollWithPageDown(1,100);
         click(terminVereinbarButton);

@@ -9,14 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Random;
 
 public class DialogsPage extends BasePage {
 
     public DialogsPage(WebDriver driver) {
         super(driver);
     }
-   // DialogsPage dialogsPage = new DialogsPage(driver);
+
     @FindBy(xpath = "//div[contains(text(),'Timeslots')]")
     WebElement timeslots;
     public boolean isDialogsPageTimeslots() {
@@ -30,7 +29,6 @@ public class DialogsPage extends BasePage {
         click(infusionstherapieclick);
         return this;
     }
-
 
     @FindBy(xpath = "(//div[@class='modal-footer']//button)[2]")
     WebElement terminVereinbar;
@@ -143,24 +141,24 @@ public class DialogsPage extends BasePage {
     @FindBy(xpath = "//input[@class='form-check-input' and @type='radio' and @name='time']")
     List<WebElement> allTimeslots;
     public DialogsPage selectDateAndTimeslot(int dateIndex, int timeslotIndex) {
-        // Собираем все доступные даты
+        // Collecting all available dates
         List<WebElement> dates = allDates;
         if (dateIndex >= 0 && dateIndex < dates.size()) {
-            // Выбираем дату по индексу
+            // Select a date by index
             click(dates.get(dateIndex));
-            System.out.println("Выбрана дата с индексом: " + dateIndex);
+            System.out.println("Selected date with index: " + dateIndex);
 
-            // После выбора даты собираем таймслоты
+            // After choosing a date, we collect timeslots
             List<WebElement> timeslots = allTimeslots;
             if (timeslotIndex >= 0 && timeslotIndex < timeslots.size()) {
-                // Выбираем таймслот по индексу
+                // Select a timeslot by index
                 click(timeslots.get(timeslotIndex));
-                System.out.println("Выбран таймслот с индексом: " + timeslotIndex);
+                System.out.println("Timeslot with index selected:" + timeslotIndex);
             } else {
-                System.err.println("Индекс таймслота вне диапазона: " + timeslotIndex);
+                System.err.println("Timeslot index out of range: " + timeslotIndex);
             }
         } else
-            System.err.println("Индекс даты вне диапазона: " + dateIndex);
+            System.err.println("Date index out of range:" + dateIndex);
         return this;
     }
 
@@ -170,26 +168,21 @@ public class DialogsPage extends BasePage {
         click(cliksDate);
         System.out.println("Clicked date: " + cliksDate.getText());
         return new DialogsPage(driver);
-//        // Локатор для доступных дат
+//
 //        List<WebElement> availableDates = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                By.xpath("//button[contains(text(),'20.12.2024')]"))); // Замените на реальный XPath для дат
+//                By.xpath("//button[contains(text(),'20.12.2024')]")));
 //        ////button[contains(text(),'16.12.2024')]   //div[contains(@class, 'timeslot-date')] //div[@id='aTimeslots']//button
-//        // Проверка наличия доступных дат
 //        if (availableDates.isEmpty()) {
-//            throw new IllegalStateException("Нет доступных дат для выбора!");
+//            throw new IllegalStateException("There are no available dates to choose from!");
 //        }
-//
-//        // Выбор случайной даты
+//        // Pick a random date
 //        WebElement randomDate = availableDates.get(new Random().nextInt(availableDates.size()));
-//
-//        // Скролл к выбранной дате (если нужно)
+//        // Scroll to the selected date (if necessary)
 //        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", randomDate);
-//
-//        // Клик по случайной дате
+//        // Click on a random date
 //        randomDate.click();
-//
-//        // Логирование выбранной даты
-//        System.out.println("Выбрана дата: " + randomDate.getText());
+//        // Logging the selected date
+//        System.out.println("Selected date:" + randomDate.getText());
     }
 
     public void clickstTime() {
@@ -198,57 +191,49 @@ public class DialogsPage extends BasePage {
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"8at4\"]")));
         click(time);
         System.out.println("Clicked time: " + time.getAttribute("id"));
-//        // Локатор для всех доступных времен
 //        List<WebElement> availableTimes = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
 //                By.xpath("//*[@id=\"aTimeslot8\"]/div/div/div[1]/div")));
 //////body/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]//input[@type='radio']
-//        // Проверка наличия доступных временных интервалов
 //        if (availableTimes.isEmpty()) {
-//            throw new IllegalStateException("Нет доступных временных интервалов для выбора!");
+//            throw new IllegalStateException("There are no available time slots to choose from!");
 //        }
-//
-//        // Выбор случайного времени
 //        WebElement randomTime = availableTimes.get(new Random().nextInt(availableTimes.size()));
-//
-//        // Скролл к выбранному времени (если нужно)
+//        // Scroll to the selected time (if necessary)
 //        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", randomTime);
-//
-//        // Клик по случайному времени
+//        // Click on a random time
 //        randomTime.click();
-//
-//        // Получение текста времени для логирования (опционально)
+//        // Receiving time text for logging (optional)
 //        WebElement timeLabel = randomTime.findElement(By.xpath("./following-sibling::label"));
-//        System.out.println("Выбрано время: " + timeLabel.getText());
+//        System.out.println("Time selected:" + timeLabel.getText());
     }
 
     @FindBy(xpath = "//div[contains(text(), 'Bitte melden Sie sich an, um fortzufahren.')]")
     WebElement loginErrorMessage;
     public boolean isDialogsPageMessageDisplayed() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath("//div[contains(text(), 'Bitte melden Sie sich an, um fortzufahren.')]"))); // Wait for visibility
-            return loginErrorMessage.isDisplayed(); // Check if the message is displayed
+                    By.xpath("//div[contains(text(), 'Bitte melden Sie sich an, um fortzufahren.')]")));
+            return loginErrorMessage.isDisplayed();
         } catch (Exception e) {
-            return false; // Return false if the element is not found or not visible within the timeout
+            return false;
         }
     }
-
 
     @FindBy(xpath = "//div[normalize-space(text())='Bitte melden Sie sich an, um fortzufahren.']")
     WebElement infoMessage;
     public boolean isDialogsPageInfoMessage() {
-        wait.until(ExpectedConditions.visibilityOf(infoMessage)); // Wait for the info message
+        wait.until(ExpectedConditions.visibilityOf(infoMessage));
         return infoMessage.isDisplayed();
     }
 
     public boolean isInfoMessageDisplayed() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.visibilityOf(terminInfoMessage)); // Wait for the *element* to be visible
-            return true; // If it's visible, return true
+            wait.until(ExpectedConditions.visibilityOf(terminInfoMessage));
+            return true;
         } catch (TimeoutException e) {
-            return false; // If it's not visible within the timeout, return false
+            return false;
         }
     }
 }

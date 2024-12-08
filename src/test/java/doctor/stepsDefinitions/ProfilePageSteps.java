@@ -1,7 +1,6 @@
 package doctor.stepsDefinitions;
 
 import doctor.pages.DialogsPage;
-import doctor.pages.LoginPage;
 import doctor.pages.ProfilePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -42,11 +41,6 @@ public class ProfilePageSteps {
         new ProfilePage(driver).enterTelefonnummerData("4917647056279");
     }
 
-//    @And("The user clicks on the Termin Vereinbar")
-//    public void userClicksTerminVereinbar() {
-//        new ProfilePage(driver).clickTerminVereinbar();
-//    }
-
     @Then("The user selects that he is not a new user")
     public void userSelectsThatHeIsNotANewUser() {
         new ProfilePage(driver).clickHeIsNotANewUser();
@@ -69,7 +63,7 @@ public class ProfilePageSteps {
 
     @Then("Verify the appointment is successfully booked")
     public void verifyTheAppointmentIsSuccessfullyBooked() {
-        // Проверить наличие сообщения об успешном бронировании
+        // Check for a successful booking message
         WebElement successMessage = driver.findElement(By.xpath("//*[contains(text(),'Erfolgreich gebucht')]"));
         Assert.assertTrue("Ihr Termin wurde erfolgreich abgeschlossen. Sie erhalten eine Bestätigung per E-Mail.", successMessage.isDisplayed());
     }

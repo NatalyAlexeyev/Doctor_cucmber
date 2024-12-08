@@ -6,7 +6,6 @@ Feature: Account
     Then The user clicks on the Login button
     And Check that the Login page title is displayed
     When The user logs in with random valid credentials
-      #The user enters valid data
     Then The user enters Angemeldet bleiben
     And The user clicks on the Anmelden button
     Then The user is redirected to the home page
