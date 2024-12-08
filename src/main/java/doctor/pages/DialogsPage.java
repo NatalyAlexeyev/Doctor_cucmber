@@ -188,7 +188,7 @@ public class DialogsPage extends BasePage {
     public void clickstTime() {
         // 1. Wait for at least one time slot to be clickable:
         WebElement time = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"8at4\"]")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"8at1\"]")));
         click(time);
         System.out.println("Clicked time: " + time.getAttribute("id"));
 //        List<WebElement> availableTimes = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
