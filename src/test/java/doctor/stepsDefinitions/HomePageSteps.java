@@ -118,7 +118,7 @@ public class HomePageSteps {
         Assert.assertTrue(new HomePage(driver).isLabordiagnostikTitlePresent());
     }
 
-    @Then("The user is redirected to the home page")
+    @And("The user is redirected to the home page")
     public void userIsRedirectedToTheHomePage() {
         Assert.assertTrue(new HomePage(driver).isHomePageTitlePresent());
     }
