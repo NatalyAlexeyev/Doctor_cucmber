@@ -162,7 +162,7 @@ public class DialogsPage extends BasePage {
         return this;
     }
 
-    @FindBy(xpath = "//button[contains(text(),'16.12.2024')]")
+    @FindBy(xpath = "//button[contains(text(),'20.12.2024')]")
     WebElement cliksDate;
     public DialogsPage clickstDate() {
         click(cliksDate);
@@ -188,7 +188,7 @@ public class DialogsPage extends BasePage {
     public void clickstTime() {
         // 1. Wait for at least one time slot to be clickable:
         WebElement time = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"8at0\"]")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"6at5\"]")));
         click(time);
         System.out.println("Clicked time: " + time.getAttribute("id"));
 //        List<WebElement> availableTimes = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(

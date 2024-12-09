@@ -19,6 +19,7 @@ import static doctor.core.BasePage.driver;
 
 public class TerminePageSteps {
     public int termineListBefore;
+    int termineCount;
 
     @And("The user is redirected to the Termine page")
     public void theUserIsRedirectedToTheTerminePage() {
@@ -138,13 +139,17 @@ public class TerminePageSteps {
 
     @And("The user counts the number of termine on the page")
     public void userCountsNumberTerminePage() {
-        int termineCount =new TerminePage(driver).countTermine();
+        termineCount =new TerminePage(driver).countTermine();
         System.out.println("Number of termine on the page: " + termineCount);
     }
 
     @And("The user deletes one termin from the list")
     public void theUserDeletesOneTerminFromTheList() {
-        new TerminePage(driver).clickdeleteTermin();
+        if (termineCount != 0) {
+            new TerminePage(driver).clickdeleteTermin();
+        } else {
+            System.out.println("Number of termine on the page: " + termineCount);
+        }
     }
 }
 
