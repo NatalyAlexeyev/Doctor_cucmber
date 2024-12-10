@@ -1,6 +1,7 @@
 package doctor.pages;
 
 import doctor.core.BasePage;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -174,15 +175,35 @@ public class HomePage extends BasePage {
         return isElementPresent(loginLink);
     }
 
-    @FindBy(xpath = "//a[contains(text(),'Über mich')]")
+    @FindBy(xpath = "(//li[@class='nav-item']//a)[2]")
     WebElement uberMichLink;
     public HomePage clickUberMichlink() {
+//        try {
+//            wait.until(ExpectedConditions.visibilityOf(uberMichLink));
+//            System.out.println("Scroll to element 'Über mich'...");
+//            scrollToElement(uberMichLink);
+//            System.out.println("Attempt to click on an element...");
+//            uberMichLink.click();
+//        } catch (Exception e) {
+//            System.out.println("A regular click didn't work. Let's try JavaScript...");
+//            scrollAndClickWithJs(uberMichLink);
+//        }
+//        return new HomePage(driver);
+//        wait.until(ExpectedConditions.visibilityOf(uberMichLink));
+//        scrollToElement(uberMichLink);
+//        click(uberMichLink);
+//        return new HomePage(driver);
         scrollWithPageDown(4,250);
         click(uberMichLink);
         return new HomePage(driver);
     }
 
-    @FindBy(xpath = "//h2[contains(text(),'Über mich')]")
+    private void scrollAndClickWithJs(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+    }
+
+    @FindBy(xpath = "(//div[@class='text-center']//h2)[3]")
     WebElement uberMichTitle;
     public boolean isHomePageTitleUberMich() {
         wait.until(ExpectedConditions.visibilityOf(uberMichTitle));
@@ -199,6 +220,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//h2[contains(text(),'Unser Team')]")
     WebElement teamTitle;
     public boolean isHomePageTitleTeam() {
+
         wait.until(ExpectedConditions.visibilityOf(teamTitle));
         return teamTitle.isDisplayed();
     }
@@ -228,11 +250,16 @@ public class HomePage extends BasePage {
     }
 
     @FindBy(xpath = "//div[@class='form-group mb-md-0']//input[1]")
+   // @FindBy(xpath = "//*[@id=contactForm]/div[1]/div[1]/div[3]/input")
+
     WebElement telefonnummer;
+    //@FindBy(xpath = "(//div[@class='form-group']//input)[1]")
     @FindBy(xpath = "(//div[@class='form-group']//input)[1]")
     WebElement nname;
+    //@FindBy(xpath = "(//div[@class='form-group']//input)[2]")
     @FindBy(xpath = "(//div[@class='form-group']//input)[2]")
     WebElement email;
+    //@FindBy(xpath = "//div[contains(@class,'form-group form-group-textarea')]//textarea[1]")
     @FindBy(xpath = "//div[contains(@class,'form-group form-group-textarea')]//textarea[1]")
     WebElement nachricht;
 
@@ -247,6 +274,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//button[@id='submitButton']")
     WebElement nachrichtSenden;
     public HomePage clickNachrichtSenden() {
+        scrollWithPageDown(1,100);
         click(nachrichtSenden);
         return new HomePage(driver);
     }

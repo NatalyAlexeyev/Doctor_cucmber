@@ -38,7 +38,13 @@ public class BasePage {
     protected void click(WebElement element) {
         // scrollTo(500);
         //scrollToElement(element);
-        element.click();
+        //element.click();
+        try {
+            element.click(); // Attempt a normal click
+        } catch (Exception e) {
+            // Use a JavaScript click if the regular one doesn’t work
+            js.executeScript("arguments[0].click();", element);
+        }
     }
 
     public void scrollToElement(WebElement element) {

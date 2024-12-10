@@ -38,7 +38,8 @@ public class DialogsPage extends BasePage {
         return this;
     }
 
-    @FindBy(xpath = "//button[contains(text(),'Schließen')]")
+    //@FindBy(xpath = "//button[contains(text(),'Schließen')]")
+    @FindBy(xpath = "//*[@id=\"page-top\"]/div[3]/div/div/div[3]/button[1]")
     WebElement schlissenButton;
     public DialogsPage clickSchlissenButton() {
         click(schlissenButton);
@@ -85,8 +86,9 @@ public class DialogsPage extends BasePage {
         click(terminVereinbarButton);
         return this;
     }
-
-    @FindBy(xpath = "//div[normalize-space(text())='Ihr Termin wurde erfolgreich abgeschlossen. Sie erhalten eine Bestätigung per E-Mail.']")
+    //*[@id="2"]/div[1]/div[2]
+    //div[contains(text(),'Ihr Termin wurde erfolgreich abgeschlossen. Sie er')]
+    @FindBy(xpath = "(//div[@class='Toastify__toast-body']//div)[2]")
     WebElement terminInfoMessage;
 
     public boolean isDialogsPageInfoMessageDisplayed(String expectedMessage) {
@@ -162,7 +164,7 @@ public class DialogsPage extends BasePage {
         return this;
     }
 
-    @FindBy(xpath = "//button[contains(text(),'20.12.2024')]")
+    @FindBy(xpath = "//button[contains(text(),'17.12.2024')]")
     WebElement cliksDate;
     public DialogsPage clickstDate() {
         click(cliksDate);
@@ -188,7 +190,7 @@ public class DialogsPage extends BasePage {
     public void clickstTime() {
         // 1. Wait for at least one time slot to be clickable:
         WebElement time = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"6at5\"]")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"10at0\"]")));
         click(time);
         System.out.println("Clicked time: " + time.getAttribute("id"));
 //        List<WebElement> availableTimes = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(

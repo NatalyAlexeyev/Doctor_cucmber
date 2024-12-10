@@ -1,4 +1,4 @@
-Feature: User Anmelden
+Feature: Login
 
   Background:
     Given The user launches the browser

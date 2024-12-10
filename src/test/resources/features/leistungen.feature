@@ -1,4 +1,4 @@
-Feature: Portfolio
+Feature: Leistungen
 
   Background:
     Given The user launches the browser

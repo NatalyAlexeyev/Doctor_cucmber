@@ -42,6 +42,7 @@ Feature: Account
     When The user opens the gesundheitspraxis home page
     Then Check that the home page title is displayed
 
+
   @ProfileTelefonnummer
   Scenario: Profile Telefonnummer
     When The user clicks on the Account

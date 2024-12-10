@@ -21,7 +21,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//h1[contains(text(),'Willkommen zurück')]")
+    @FindBy(xpath = "//h1[contains(text(),'Willkommen zur')]")
     WebElement loginPageTitle;
     public boolean isLoginPageTitlePresent() {
         return isElementPresent(loginPageTitle);

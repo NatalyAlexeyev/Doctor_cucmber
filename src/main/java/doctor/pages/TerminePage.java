@@ -88,7 +88,7 @@ public class TerminePage extends BasePage {
             new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(deleteButton)).click();
             // Waiting for the modal window to appear
             WebElement confirmButton = new WebDriverWait(driver, Duration.ofSeconds(10))
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Ja, löschen!')]")));
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='swal2-actions']//button)[3]")));
             // Click on the confirmation button
             confirmButton.click();
             // Waiting for the modal window to disappear

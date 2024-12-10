@@ -1,4 +1,4 @@
-Feature: User Registration
+Feature: Registration
 
   Background:
     Given The user launches the browser

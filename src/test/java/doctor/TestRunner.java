@@ -10,12 +10,14 @@ import org.junit.runner.RunWith;
                 features = "src/test/resources/features",
                 glue = "doctor.stepsDefinitions",
                 plugin = {"pretty", "json:target/cucumber.json"},
-                tags="@InvalidPassword"
-//tags = "@UberMich or @Contact or @Team or @Logout or @ProfileVorNaname or @ProfileNachNaname or " +
-//                        "@ProfileTelefonnummer or @Terminedelet or @Login or @InvalidPassword or @Registration or " +
-//                        "@UsercliksAnmelden or @Infusionstherapienewuser or @Infusionstherapie"
+             //   tags ="@Infusionstherapienewuser or @Infusionstherapie"
+                tags = "@Terminedelet or @UberMich or @Contact or @Team or @Logout or @ProfileVorNaname or @ProfileNachNaname or " +
+                        "@ProfileTelefonnummer or @Login or @InvalidPassword or @Registration or " +
+                        "@UsercliksAnmelden or @Infusionstherapienewuser or @Infusionstherapie"
+
         )
 
 public class TestRunner {
 }
+
 
