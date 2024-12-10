@@ -55,7 +55,7 @@ public class ProfilePage extends BasePage {
         }
     }
 
-    @FindBy(xpath = "//body/div[@id='root']/nav[@id='mainNav']/div[1]")
+    @FindBy(xpath = "//body/div[@id='root']/nav[@id='mainNav']/div[1]/a[1]")
     WebElement startBootstrapLink;
     public ProfilePage clickStartBootstrap() {
         click(startBootstrapLink);
