@@ -34,6 +34,8 @@ public class LoginPage extends BasePage {
     WebElement passwordInput;
 
     public LoginPage enterPazientData(String email, String password) {
+        email="Milka@gmx.test";
+        password="milkacat";
         type(emailInput, email);
         type(passwordInput, password);
         return this;
@@ -103,8 +105,6 @@ public class LoginPage extends BasePage {
             String email = userData[0];
             String password = userData[1];
             enterPazientData(email, password);
-//        } else {
-//            System.out.println("No user data found!");
         }
         return this;
     }

@@ -49,7 +49,10 @@ public class LoginPageSteps {
 
     @When("The user logs in with random valid credentials")
     public void userLogsInWithRandomValidCredentials() {
-        new LoginPage(driver).enterPazientData1();
+     //   new LoginPage(driver).enterPazientData1();
+        String email = "Milka@gmx.test";//RegistrationPage.getGeneratedEmail();
+        String password = "milkacat";
+        new LoginPage(driver).enterPazientData(email, password);
     }
 
     @Then("The user is redirected to the Login page")
